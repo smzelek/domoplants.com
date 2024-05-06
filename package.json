@@ -10,9 +10,8 @@
   "scripts": {
     "start:app": "vite",
     "start:server": "nodemon --ignore src/frontend/ src/backend/main.ts",
-    "scrape:slack": "node --import tsx bonusly/scrape-slack.ts",
-    "scrape:users": "node --import tsx bonusly/scrape-users.ts",
-    "scrape:bonuses": "node --import tsx bonusly/scrape-bonuses.ts",
+    "generate:db": "drizzle-kit generate:pg --config src/database/drizzle.config.ts",
+    "migrate:db": "node --import tsx src/database/migrate.ts",
     "seed": "node --import tsx src/backend/db/seed_db.ts",
     "test": "glob -c \"node --import tsx --test\" \"./src/**/*.test.ts[x]\"",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
