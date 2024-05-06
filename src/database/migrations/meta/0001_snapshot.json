@@ -1,6 +1,6 @@
 {
-  "id": "88eea088-32d4-4d58-88c0-ab860a2bee5c",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "1820764f-d4e2-44c6-a995-9f47b0abdc3c",
+  "prevId": "88eea088-32d4-4d58-88c0-ab860a2bee5c",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -214,7 +214,7 @@
         },
         "amount": {
           "name": "amount",
-          "type": "integer",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": true
         },

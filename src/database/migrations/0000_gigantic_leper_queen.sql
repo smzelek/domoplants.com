@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 CREATE TABLE IF NOT EXISTS "waterings" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"plant_id" integer NOT NULL,
+	"watered_by_user_id" integer NOT NULL,
 	"amount" integer NOT NULL,
 	"watered_at" timestamp NOT NULL,
 	"created_at" timestamp NOT NULL
@@ -54,6 +55,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "waterings" ADD CONSTRAINT "waterings_plant_id_plants_id_fk" FOREIGN KEY ("plant_id") REFERENCES "plants"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "waterings" ADD CONSTRAINT "waterings_watered_by_user_id_plants_id_fk" FOREIGN KEY ("watered_by_user_id") REFERENCES "plants"("id") ON DELETE cascade ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

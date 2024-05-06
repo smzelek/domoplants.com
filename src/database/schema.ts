@@ -1,4 +1,4 @@
-import { serial, text, timestamp, pgTable, integer, AnyPgColumn } from "drizzle-orm/pg-core";
+import { serial, text, timestamp, pgTable, integer, AnyPgColumn, numeric } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
     id: serial("id").primaryKey().notNull(),
@@ -31,8 +31,8 @@ export const plants = pgTable("plants", {
 export const waterings = pgTable("waterings", {
     id: serial("id").primaryKey().notNull(),
     plant_id: integer("plant_id").notNull().references((): AnyPgColumn => plants.id, { onDelete: "cascade" }), // delete waterings when their plant is deleted.
-    watered_by_user_id: integer("plant_id").notNull().references((): AnyPgColumn => plants.id, { onDelete: "cascade" }),
-    amount: integer("amount").notNull(),
+    watered_by_user_id: integer("watered_by_user_id").notNull().references((): AnyPgColumn => plants.id, { onDelete: "cascade" }),
+    amount: numeric("amount").notNull(),
     watered_at: timestamp("watered_at").notNull(),
     created_at: timestamp("created_at").notNull(),
 });

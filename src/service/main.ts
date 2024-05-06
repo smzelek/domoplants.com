@@ -3,6 +3,7 @@ import cors from 'cors';
 import { ApiErrorResponse, ApiSuccessResponse, int } from '../types';
 import { logFunction } from './utils';
 import { healthController } from './controllers/health.controller';
+import { plantsController } from './controllers/plants.controller';
 import * as jwt from 'jsonwebtoken';
 import { JWT_SECRET } from './env';
 import { ErrorConstant, DOMAIN_ERROR, errors } from './errors';
@@ -88,6 +89,7 @@ app.use(cors());
 app.use(express.json());
 app.use(api);
 app.use(healthController);
+app.use(plantsController);
 
 app.get('*', function (req, res, next) {
     next(errors.NotFoundOrNoDiscoveryForbidden);
