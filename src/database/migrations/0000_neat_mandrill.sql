@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS "accounts" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
-	"owner_user_id" integer NOT NULL,
+	"owner_user_id" integer,
 	"created_at" timestamp NOT NULL,
 	"updated_at" timestamp NOT NULL
 );

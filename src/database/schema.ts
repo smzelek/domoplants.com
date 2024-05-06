@@ -13,7 +13,7 @@ export const users = pgTable("users", {
 export const accounts = pgTable("accounts", {
     id: serial("id").primaryKey().notNull(),
     name: text("name").notNull(),
-    owner_user_id: integer("owner_user_id").notNull().references((): AnyPgColumn => users.id),
+    owner_user_id: integer("owner_user_id").references((): AnyPgColumn => users.id),
     created_at: timestamp("created_at").notNull(),
     updated_at: timestamp("updated_at").notNull(),
 });

@@ -1,5 +1,5 @@
 {
-  "id": "a5ea31f8-1f70-466d-8581-bbe33af0c324",
+  "id": "077c6f3e-4c7c-45e2-a3d2-ed28366b16b0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -24,7 +24,7 @@
           "name": "owner_user_id",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "created_at": {
           "name": "created_at",

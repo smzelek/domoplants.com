@@ -12,7 +12,7 @@
     "start:server": "nodemon --ignore src/frontend/ src/backend/main.ts",
     "generate:db": "drizzle-kit generate:pg --config src/database/drizzle.config.ts",
     "migrate:db": "node --import tsx src/database/migrate.ts",
-    "seed": "node --import tsx src/backend/db/seed_db.ts",
+    "seed:db": "node --import tsx src/database/seed_db.ts",
     "test": "glob -c \"node --import tsx --test\" \"./src/**/*.test.ts[x]\"",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build:app": "tsc && vite build",
